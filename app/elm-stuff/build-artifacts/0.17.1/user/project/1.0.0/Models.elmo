@@ -1,6 +1,0 @@
-var _user$project$Models$Model = {};
-var _user$project$Models$init = function () {
-	var cmds = _elm_lang$core$Platform_Cmd$none;
-	var model = _user$project$Models$Model;
-	return {ctor: '_Tuple2', _0: model, _1: cmds};
-}();
