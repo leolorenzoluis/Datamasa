@@ -5,9 +5,11 @@
     <title>Elm TodoMVC with API</title>
   </head>
   <body>
+    <div id="app"</div>
     <script type="text/javascript" src="app/app.js"></script>
     <script>
-      var app = Elm.fullscreen(Elm.Main, {});
+      var mainDiv = document.getElementById('app');
+      Elm.Main.embed(mainDiv)
     </script>
   </body>
 </html>
