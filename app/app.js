@@ -7635,254 +7635,97 @@ var _elm_lang$html$Html_Attributes$classList = function (list) {
 };
 var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
 
-var _elm_lang$html$Html_Events$keyCode = A2(_elm_lang$core$Json_Decode_ops[':='], 'keyCode', _elm_lang$core$Json_Decode$int);
-var _elm_lang$html$Html_Events$targetChecked = A2(
-	_elm_lang$core$Json_Decode$at,
-	_elm_lang$core$Native_List.fromArray(
-		['target', 'checked']),
-	_elm_lang$core$Json_Decode$bool);
-var _elm_lang$html$Html_Events$targetValue = A2(
-	_elm_lang$core$Json_Decode$at,
-	_elm_lang$core$Native_List.fromArray(
-		['target', 'value']),
-	_elm_lang$core$Json_Decode$string);
-var _elm_lang$html$Html_Events$defaultOptions = _elm_lang$virtual_dom$VirtualDom$defaultOptions;
-var _elm_lang$html$Html_Events$onWithOptions = _elm_lang$virtual_dom$VirtualDom$onWithOptions;
-var _elm_lang$html$Html_Events$on = _elm_lang$virtual_dom$VirtualDom$on;
-var _elm_lang$html$Html_Events$onFocus = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'focus',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onBlur = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'blur',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onSubmitOptions = _elm_lang$core$Native_Utils.update(
-	_elm_lang$html$Html_Events$defaultOptions,
-	{preventDefault: true});
-var _elm_lang$html$Html_Events$onSubmit = function (msg) {
-	return A3(
-		_elm_lang$html$Html_Events$onWithOptions,
-		'submit',
-		_elm_lang$html$Html_Events$onSubmitOptions,
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onCheck = function (tagger) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'change',
-		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetChecked));
-};
-var _elm_lang$html$Html_Events$onInput = function (tagger) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'input',
-		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetValue));
-};
-var _elm_lang$html$Html_Events$onMouseOut = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseout',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseOver = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseover',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseLeave = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseleave',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseEnter = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseenter',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseUp = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseup',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseDown = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mousedown',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onDoubleClick = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'dblclick',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onClick = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'click',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$Options = F2(
-	function (a, b) {
-		return {stopPropagation: a, preventDefault: b};
-	});
+var _user$project$Messages$NoOp = {ctor: 'NoOp'};
 
-var _user$project$Main$toStyle = function (model) {
-	return _elm_lang$html$Html_Attributes$style(
-		_elm_lang$core$Native_List.fromArray(
-			[
-				{
-				ctor: '_Tuple2',
-				_0: 'color',
-				_1: model.red ? 'red' : 'black'
-			},
-				{
-				ctor: '_Tuple2',
-				_0: 'text-decoration',
-				_1: model.underline ? 'underline' : 'none'
-			},
-				{
-				ctor: '_Tuple2',
-				_0: 'font-weight',
-				_1: model.bold ? 'bold' : 'normal'
-			}
-			]));
-};
-var _user$project$Main$update = F2(
-	function (msg, model) {
-		var _p0 = msg;
-		switch (_p0.ctor) {
-			case 'Red':
-				return _elm_lang$core$Native_Utils.update(
-					model,
-					{red: _p0._0});
-			case 'Underline':
-				return _elm_lang$core$Native_Utils.update(
-					model,
-					{underline: _p0._0});
-			default:
-				return _elm_lang$core$Native_Utils.update(
-					model,
-					{bold: _p0._0});
-		}
+var _user$project$Models$Model = {};
+var _user$project$Models$init = function () {
+	var cmds = _elm_lang$core$Platform_Cmd$none;
+	var model = _user$project$Models$Model;
+	return {ctor: '_Tuple2', _0: model, _1: cmds};
+}();
+
+var _user$project$View$atb = F2(
+	function (url, title) {
+		return A2(
+			_elm_lang$html$Html$a,
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html_Attributes$href(url),
+					_elm_lang$html$Html_Attributes$target('_blank')
+				]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html$text(title)
+				]));
 	});
-var _user$project$Main$Model = F3(
-	function (a, b, c) {
-		return {red: a, underline: b, bold: c};
-	});
-var _user$project$Main$model = A3(_user$project$Main$Model, false, false, true);
-var _user$project$Main$Bold = function (a) {
-	return {ctor: 'Bold', _0: a};
-};
-var _user$project$Main$Underline = function (a) {
-	return {ctor: 'Underline', _0: a};
-};
-var _user$project$Main$Red = function (a) {
-	return {ctor: 'Red', _0: a};
-};
-var _user$project$Main$view = function (model) {
+var _user$project$View$pipeDivider = _elm_lang$html$Html$text(' | ');
+var _user$project$View$siteHeader = A2(
+	_elm_lang$html$Html$header,
+	_elm_lang$core$Native_List.fromArray(
+		[]),
+	_elm_lang$core$Native_List.fromArray(
+		[
+			A2(
+			_elm_lang$html$Html$h1,
+			_elm_lang$core$Native_List.fromArray(
+				[]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html$text('Elm Todos')
+				])),
+			A2(
+			_elm_lang$html$Html$p,
+			_elm_lang$core$Native_List.fromArray(
+				[]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html$text('Built with '),
+					A2(_user$project$View$atb, 'http://elm-lang.org', 'Elm'),
+					_elm_lang$html$Html$text(' ♥')
+				])),
+			A2(
+			_elm_lang$html$Html$p,
+			_elm_lang$core$Native_List.fromArray(
+				[]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html$text('Created by Andrew Suzuki'),
+					_user$project$View$pipeDivider,
+					A2(_user$project$View$atb, 'https://github.com/andrewsuzuki', 'github'),
+					_user$project$View$pipeDivider,
+					A2(_user$project$View$atb, 'https://github.com/andrewsuzuki/elm-todomvc-with-api', 'source')
+				]))
+		]));
+var _user$project$View$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
 			[]),
 		_elm_lang$core$Native_List.fromArray(
 			[
+				_user$project$View$siteHeader,
 				A2(
-				_elm_lang$html$Html$span,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_user$project$Main$toStyle(model)
-					]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('Hello, how are you?!')
-					])),
-				A2(
-				_elm_lang$html$Html$label,
+				_elm_lang$html$Html$br,
 				_elm_lang$core$Native_List.fromArray(
 					[]),
 				_elm_lang$core$Native_List.fromArray(
-					[
-						A2(
-						_elm_lang$html$Html$br,
-						_elm_lang$core$Native_List.fromArray(
-							[]),
-						_elm_lang$core$Native_List.fromArray(
-							[])),
-						A2(
-						_elm_lang$html$Html$input,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_elm_lang$html$Html_Attributes$type$('checkbox'),
-								_elm_lang$html$Html_Attributes$checked(model.red),
-								_elm_lang$html$Html_Events$onCheck(_user$project$Main$Red)
-							]),
-						_elm_lang$core$Native_List.fromArray(
-							[])),
-						_elm_lang$html$Html$text('red')
-					])),
-				A2(
-				_elm_lang$html$Html$label,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						A2(
-						_elm_lang$html$Html$br,
-						_elm_lang$core$Native_List.fromArray(
-							[]),
-						_elm_lang$core$Native_List.fromArray(
-							[])),
-						A2(
-						_elm_lang$html$Html$input,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_elm_lang$html$Html_Attributes$type$('checkbox'),
-								_elm_lang$html$Html_Attributes$checked(model.underline),
-								_elm_lang$html$Html_Events$onCheck(_user$project$Main$Underline)
-							]),
-						_elm_lang$core$Native_List.fromArray(
-							[])),
-						_elm_lang$html$Html$text('underline')
-					])),
-				A2(
-				_elm_lang$html$Html$label,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						A2(
-						_elm_lang$html$Html$br,
-						_elm_lang$core$Native_List.fromArray(
-							[]),
-						_elm_lang$core$Native_List.fromArray(
-							[])),
-						A2(
-						_elm_lang$html$Html$input,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_elm_lang$html$Html_Attributes$type$('checkbox'),
-								_elm_lang$html$Html_Attributes$checked(model.bold),
-								_elm_lang$html$Html_Events$onCheck(_user$project$Main$Bold)
-							]),
-						_elm_lang$core$Native_List.fromArray(
-							[])),
-						_elm_lang$html$Html$text('bold')
-					]))
+					[]))
 			]));
 };
+
+var _user$project$Update$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+	});
+
+var _user$project$Subscriptions$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
+
 var _user$project$Main$main = {
-	main: _elm_lang$html$Html_App$beginnerProgram(
-		{model: _user$project$Main$model, view: _user$project$Main$view, update: _user$project$Main$update})
+	main: _elm_lang$html$Html_App$program(
+		{init: _user$project$Models$init, subscriptions: _user$project$Subscriptions$subscriptions, update: _user$project$Update$update, view: _user$project$View$view})
 };
 
 var Elm = {};
