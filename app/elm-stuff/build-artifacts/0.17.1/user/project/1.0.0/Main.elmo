@@ -1,0 +1,148 @@
+var _user$project$Main$toStyle = function (model) {
+	return _elm_lang$html$Html_Attributes$style(
+		_elm_lang$core$Native_List.fromArray(
+			[
+				{
+				ctor: '_Tuple2',
+				_0: 'color',
+				_1: model.red ? 'red' : 'black'
+			},
+				{
+				ctor: '_Tuple2',
+				_0: 'text-decoration',
+				_1: model.underline ? 'underline' : 'none'
+			},
+				{
+				ctor: '_Tuple2',
+				_0: 'font-weight',
+				_1: model.bold ? 'bold' : 'normal'
+			}
+			]));
+};
+var _user$project$Main$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		switch (_p0.ctor) {
+			case 'Red':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{red: _p0._0});
+			case 'Underline':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{underline: _p0._0});
+			default:
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{bold: _p0._0});
+		}
+	});
+var _user$project$Main$Model = F3(
+	function (a, b, c) {
+		return {red: a, underline: b, bold: c};
+	});
+var _user$project$Main$model = A3(_user$project$Main$Model, false, false, true);
+var _user$project$Main$Bold = function (a) {
+	return {ctor: 'Bold', _0: a};
+};
+var _user$project$Main$Underline = function (a) {
+	return {ctor: 'Underline', _0: a};
+};
+var _user$project$Main$Red = function (a) {
+	return {ctor: 'Red', _0: a};
+};
+var _user$project$Main$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html$span,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_user$project$Main$toStyle(model)
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('Hello, how are you?!')
+					])),
+				A2(
+				_elm_lang$html$Html$label,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_elm_lang$html$Html$br,
+						_elm_lang$core$Native_List.fromArray(
+							[]),
+						_elm_lang$core$Native_List.fromArray(
+							[])),
+						A2(
+						_elm_lang$html$Html$input,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$type$('checkbox'),
+								_elm_lang$html$Html_Attributes$checked(model.red),
+								_elm_lang$html$Html_Events$onCheck(_user$project$Main$Red)
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[])),
+						_elm_lang$html$Html$text('red')
+					])),
+				A2(
+				_elm_lang$html$Html$label,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_elm_lang$html$Html$br,
+						_elm_lang$core$Native_List.fromArray(
+							[]),
+						_elm_lang$core$Native_List.fromArray(
+							[])),
+						A2(
+						_elm_lang$html$Html$input,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$type$('checkbox'),
+								_elm_lang$html$Html_Attributes$checked(model.underline),
+								_elm_lang$html$Html_Events$onCheck(_user$project$Main$Underline)
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[])),
+						_elm_lang$html$Html$text('underline')
+					])),
+				A2(
+				_elm_lang$html$Html$label,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_elm_lang$html$Html$br,
+						_elm_lang$core$Native_List.fromArray(
+							[]),
+						_elm_lang$core$Native_List.fromArray(
+							[])),
+						A2(
+						_elm_lang$html$Html$input,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$type$('checkbox'),
+								_elm_lang$html$Html_Attributes$checked(model.bold),
+								_elm_lang$html$Html_Events$onCheck(_user$project$Main$Bold)
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[])),
+						_elm_lang$html$Html$text('bold')
+					]))
+			]));
+};
+var _user$project$Main$main = {
+	main: _elm_lang$html$Html_App$beginnerProgram(
+		{model: _user$project$Main$model, view: _user$project$Main$view, update: _user$project$Main$update})
+};

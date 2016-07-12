@@ -12,6 +12,7 @@ open System
 open System.IO
 open Suave
 open Suave.Web
+open Suave.Writers
 open Microsoft.FSharp.Compiler.Interactive.Shell
 
 // --------------------------------------------------------------------------------------
@@ -54,10 +55,23 @@ let reloadScript () =
 
 let currentApp = ref (fun _ -> async { return None })
 
+let defaultMimeTypesMap = function
+  | ".css" -> mkMimeType "text/css" true
+  | ".gif" -> mkMimeType "image/gif" false
+  | ".png" -> mkMimeType "image/png" false
+  | ".htm"
+  | ".html" -> mkMimeType "text/html" true
+  | ".jpe"
+  | ".jpeg"
+  | ".jpg" -> mkMimeType "image/jpeg" false
+  | ".js"  -> mkMimeType "application/x-javascript" true
+  | _      -> None
+
 let serverConfig =
   { defaultConfig with
       homeFolder = Some __SOURCE_DIRECTORY__
       logger = Logging.Loggers.saneDefaultsFor Logging.LogLevel.Debug
+      mimeTypesMap = defaultMimeTypesMap
   }
 
 let reloadAppServer () =

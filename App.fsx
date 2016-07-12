@@ -10,11 +10,11 @@ open Suave.Filters
 open Suave.Operators
 open Suave.Web
 open Suave.Successful
+open Suave.Writers
+open Suave.Successful
 open Newtonsoft.Json
 open Newtonsoft.Json.Serialization
 open Dataset
-
-
 
 let JSON v =
         let jsonSerializerSettings = new JsonSerializerSettings()
@@ -31,7 +31,8 @@ let indexFile = File.ReadAllText(indexPath)
 
 
 let app =  choose
-            [ GET >=> choose
+            [
+              GET >=> choose
                 [ path "/elementary" >=> getAll
                   path "/" >=> OK indexFile ; Files.browseHome ]
             ]
