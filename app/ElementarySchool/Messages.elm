@@ -1,4 +1,8 @@
 module ElementarySchool.Messages exposing (..)
 
+import Http
+import ElementarySchool.Models exposing (School)
+
 type Msg
-  = NoOp
+  = FetchAllDone (List School)
+  | FetchAllFail Http.Error

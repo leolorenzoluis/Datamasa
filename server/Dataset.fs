@@ -3,11 +3,11 @@
 
     module Elementary =
         type Elementary = {
+            SchoolId : int
             Region : string
             Province : string
             Municipality : string
             Division : string
-            SchoolId : int
             }
 
         type private Provider = CsvProvider<"data/elementary.csv">

@@ -5,8 +5,9 @@ module Models exposing (..)
 -- if we wanted to just import them all, we could use (..)
 -- but i think it's usually better to be explicit about imports
 -- unless you truly need everything (like in Todos.Update)
-import Messages exposing (Msg)
+import Messages exposing (Msg(ElementarySchoolMsg))
 import ElementarySchool.Models exposing (School)
+import ElementarySchool.Commands exposing (fetchAll)
 
 -- this is our "root" model
 -- all app state is stored in this record
@@ -26,10 +27,10 @@ init =
         -- being in the same order they were declared in (above).
         -- here we're creating the initial model with an empty list of Todos
         -- and the "None" state for the todoEditView
-        model = Model [ School 1 "Sample" "Sample" "Blah" "Tete"]
+        model = Model []
         -- ...instead we could have done:
         -- model = { todos = [], todoEditView = None }
-        cmds = Cmd.none
+        cmds = Cmd.map ElementarySchoolMsg fetchAll
         -- on initial load, we can use Cmd.batch to return a list
         -- of commands as a single command.
         -- here it's not really necessary since we only have one command
