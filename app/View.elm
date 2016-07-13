@@ -24,17 +24,17 @@ view model =
 siteHeader : Html Msg
 siteHeader =
     header []
-        [ h1 [] [ text "Elm Todos" ]
+        [ h1 [] [ text "Elm Datamasa" ]
         , p []
             [ text "Built with "
             , atb "http://elm-lang.org" "Elm"
             , text " ♥" ]
         , p []
-            [ text "Created by Leo Luis"
+            [ text "Created by Leo Lorenzo Luis"
             , pipeDivider
-            , atb "https://github.com/andrewsuzuki" "github"
+            , atb "https://github.com/leolorenzoluis" "github"
             , pipeDivider
-            , atb "https://github.com/andrewsuzuki/elm-todomvc-with-api" "source"
+            , atb "https://github.com/leolorenzoluis/datamasa" "source"
             ]
         ]
 

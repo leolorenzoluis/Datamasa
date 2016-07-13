@@ -1,3 +1,7 @@
+cls
+
+call elm make app/Main.elm --output=app/app.js --yes
+
 @echo off
 .paket\paket.bootstrapper.exe
 if errorlevel 1 (
@@ -11,4 +15,5 @@ if not exist paket.lock (
 if errorlevel 1 (
   exit /b %errorlevel%
 )
-packages\FAKE\tools\FAKE.exe %* --fsiargs build.fsx
+
+packages\FAKE\tools\FAKE.exe --fsiargs build.fsx
