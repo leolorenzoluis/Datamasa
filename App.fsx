@@ -1,7 +1,7 @@
 ﻿#r "packages/Suave/lib/net40/Suave.dll"
 #r "packages/Newtonsoft.Json/lib/net45/Newtonsoft.Json.dll"
 #r "packages/FSharp.Data/lib/net40/FSharp.Data.dll"
-#load "server/Dataset.fs"
+#load "server/Dataset.fsx"
 
 open System
 open System.IO

@@ -1,4 +1,4 @@
-module ElementarySchool.List exposing (..)
+module ElementarySchool.View exposing (view)
 
 import Html exposing (..)
 import ElementarySchool.Messages exposing (..)
@@ -26,6 +26,9 @@ list schools =
                 , th [] [ text "Region"]
                 , th [] [ text "Municipality"]
                 , th [] [ text "Province"]
+                , th [] [ text "School"]
+                , th [] [ text "Grade 1 Male"]
+                , th [] [ text "Grade 2 Female"]
                 ]
             ]
           , tbody [] (List.map schoolRow schools)
@@ -40,6 +43,7 @@ schoolRow school =
           , td [] [ text school.region ]
           , td [] [ text school.municipality ]
           , td [] [ text school.province ]
-          , td []
-            []
+          , td [] [ text school.school ]
+          , td [] [ text (toString school.gradeOneMaleCount) ]
+          , td [] [ text (toString school.gradeOneFemaleCount) ]
           ]

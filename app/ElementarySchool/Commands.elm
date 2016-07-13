@@ -19,11 +19,29 @@ collectionDecoder : Decode.Decoder (List School)
 collectionDecoder =
     Decode.list memberDecoder
 
+
+apply : Decode.Decoder (a -> b) -> Decode.Decoder a -> Decode.Decoder b
+apply func value =
+    Decode.object2 (<|) func value
+
 memberDecoder : Decode.Decoder School
 memberDecoder =
-    Decode.object5 School
+    Decode.map School
       ("schoolId" := Decode.int)
-      ("region" := Decode.string)
-      ("province" := Decode.string)
-      ("municipality" := Decode.string)
-      ("division" := Decode.string)
+      `apply`("region" := Decode.string)
+      `apply`("province" := Decode.string)
+      `apply`("municipality" := Decode.string)
+      `apply`("division" := Decode.string)
+      `apply`("school" := Decode.string)
+      `apply`("gradeOneMaleCount" := Decode.int)
+      `apply`("gradeOneFemaleCount" := Decode.int)
+      `apply`("gradeTwoMaleCount" := Decode.int)
+      `apply`("gradeTwoFemaleCount" := Decode.int)
+      `apply`("gradeThreeMaleCount" := Decode.int)
+      `apply`("gradeThreeFemaleCount" := Decode.int)
+      `apply`("gradeFourMaleCount" := Decode.int)
+      `apply`("gradeFourFemaleCount" := Decode.int)
+      `apply`("gradeFiveMaleCount" := Decode.int)
+      `apply`("gradeFiveFemaleCount" := Decode.int)
+      `apply`("gradeSixMaleCount" := Decode.int)
+      `apply`("gradeSixFemaleCount" := Decode.int)
