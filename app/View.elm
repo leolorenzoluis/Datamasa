@@ -3,9 +3,9 @@ module View exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (style, href, target)
 import Html.App
-import Messages exposing (Msg(WidgetMsg))
+import Messages exposing (Msg(ElementarySchoolMsg))
 import Models exposing (Model)
-import Elementary.Widget
+import ElementarySchool.List exposing (..)
 
 -- this is our "root" view. the entire appearance of our application
 -- is derived here from the app state (model)
@@ -13,7 +13,7 @@ view : Model -> Html Msg
 view model =
     div []
         [ siteHeader
-        , Html.App.map WidgetMsg (Elementary.Widget.view model.widgetModel)
+        , Html.App.map ElementarySchoolMsg (ElementarySchool.List.view model.elementarySchools)
         -- render the todos edit and list sub-views using pars of the model,
         -- then "tag" outgoing messages with TodosMsg
         --, Html.App.map TodosMsg <| Todos.Edit.view model.todoEditView

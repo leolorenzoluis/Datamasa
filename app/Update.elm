@@ -1,8 +1,8 @@
 module Update exposing (..)
 
 import Models exposing (Model)
-import Messages exposing (Msg (NoOp, WidgetMsg))
-import Elementary.Widget
+import Messages exposing (Msg (NoOp, ElementarySchoolMsg))
+import ElementarySchool.Update
 
 -- this is our "root" update, which is called many times
 -- throughout the lifecycle of the application,
@@ -12,7 +12,7 @@ import Elementary.Widget
 -- as well as which commands we might want to dispatch.
 -- notice that we must return a tuple of the new model and the command together!
 -- this is because elm, like pretty much all languages, can only return one value
-update : Msg -> Model -> (Model, Cmd Msg)
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     -- since Msg is a union type, we need to handle
     -- every single case in a case..of statement
@@ -21,9 +21,9 @@ update msg model =
         -- Cmd.none means "i don't want to run any commands this time"
         NoOp ->
             (model, Cmd.none)
-        WidgetMsg subMsg ->
+        ElementarySchoolMsg subMsg ->
             let
-              ( updatedWidgetModel, widgetCmd ) =
-                Elementary.Widget.update subMsg model.widgetModel
+              ( updatedSchoolModel, elementarySchoolCmd ) =
+                ElementarySchool.Update.update subMsg model.elementarySchools
             in
-              ( { model | widgetModel = updatedWidgetModel }, Cmd.map WidgetMsg widgetCmd)
+              ( { model | elementarySchools = updatedSchoolModel }, Cmd.map ElementarySchoolMsg elementarySchoolCmd )

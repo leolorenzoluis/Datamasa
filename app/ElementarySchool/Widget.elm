@@ -1,4 +1,4 @@
-module Elementary.Widget exposing (..)
+module ElementarySchool.Widget exposing (..)
 
 import Html exposing (Html, button, div, text)
 import Html.Attributes exposing (class)
