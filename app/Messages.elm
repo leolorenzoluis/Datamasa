@@ -1,5 +1,7 @@
 module Messages exposing (..)
 
+import Elementary.Widget
+
 
 -- this is our "root" Msg, a union type representing
 -- the different actions that can be applied to the entire app state.
@@ -12,6 +14,7 @@ type Msg =
     -- in any Msg type you create -- think of it as the "control"
     -- in a research project
     NoOp
+    | WidgetMsg Elementary.Widget.Msg
     -- since we want to keep our app modular, we want to forward
     -- anything having to do with the concept of todos to a
     -- different Msg module, in this case Todos.Messages.Msg.

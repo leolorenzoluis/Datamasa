@@ -1,8 +1,8 @@
 module Update exposing (..)
 
 import Models exposing (Model)
-import Messages exposing (Msg (NoOp))
-
+import Messages exposing (Msg (NoOp, WidgetMsg))
+import Elementary.Widget
 
 -- this is our "root" update, which is called many times
 -- throughout the lifecycle of the application,
@@ -21,3 +21,9 @@ update msg model =
         -- Cmd.none means "i don't want to run any commands this time"
         NoOp ->
             (model, Cmd.none)
+        WidgetMsg subMsg ->
+            let
+              ( updatedWidgetModel, widgetCmd ) =
+                Elementary.Widget.update subMsg model.widgetModel
+            in
+              ( { model | widgetModel = updatedWidgetModel }, Cmd.map WidgetMsg widgetCmd)

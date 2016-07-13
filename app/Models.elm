@@ -6,11 +6,14 @@ module Models exposing (..)
 -- but i think it's usually better to be explicit about imports
 -- unless you truly need everything (like in Todos.Update)
 import Messages exposing (Msg)
+import Elementary.Widget
 
 
 -- this is our "root" model
 -- all app state is stored in this record
-type alias Model = { }
+type alias Model = {
+        widgetModel : Elementary.Widget.Model
+      }
     --{ todos : List Todo -- the actual list of Todos
     --, todoEditView : TodoEditView } -- see Todos.Models.TodoEditView
 
@@ -24,7 +27,7 @@ init =
         -- being in the same order they were declared in (above).
         -- here we're creating the initial model with an empty list of Todos
         -- and the "None" state for the todoEditView
-        model = Model
+        model = Model Elementary.Widget.initialModel
         -- ...instead we could have done:
         -- model = { todos = [], todoEditView = None }
         cmds = Cmd.none
